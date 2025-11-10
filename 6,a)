@@ -1,0 +1,34 @@
+import 'package:flutter/material.dart';
+void main() => runApp(const MaterialApp(home: Home()));
+
+class Btn extends StatelessWidget {
+  final String t; final IconData i; final VoidCallback f;
+  const Btn({super.key, required this.t, required this.i, required this.f});
+  @override
+  Widget build(BuildContext c) => GestureDetector(
+    onTap: f,
+    child: Container(
+      padding: const EdgeInsets.all(14),
+      margin: const EdgeInsets.all(8),
+      decoration: BoxDecoration(
+        gradient: const LinearGradient(colors: [Colors.purple, Colors.blue]),
+        borderRadius: BorderRadius.circular(20)),
+      child: Row(mainAxisAlignment: MainAxisAlignment.center, children:[
+        Icon(i, color: Colors.white), const SizedBox(width:8),
+        Text(t, style: const TextStyle(color: Colors.white,fontSize:18))
+      ]),
+    ));
+}
+
+class Home extends StatelessWidget {
+  const Home({super.key});
+  void msg(BuildContext c, String s)=>ScaffoldMessenger.of(c).showSnackBar(SnackBar(content:Text(s)));
+  @override
+  Widget build(BuildContext c)=>Scaffold(
+    appBar: AppBar(title:const Text("Custom Btns")),
+    body:Center(child:Column(mainAxisAlignment:MainAxisAlignment.center,children:[
+      Btn(t:"Login",i:Icons.login,f:()=>msg(c,"Login")),
+      Btn(t:"Sign Up",i:Icons.person_add,f:()=>msg(c,"Sign Up")),
+      Btn(t:"Settings",i:Icons.settings,f:()=>msg(c,"Settings")),
+    ])));
+}
