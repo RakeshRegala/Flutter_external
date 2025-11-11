@@ -27,8 +27,8 @@ class Home extends StatelessWidget {
   Widget build(BuildContext c)=>Scaffold(
     appBar: AppBar(title:const Text("Custom Btns")),
     body:Center(child:Column(mainAxisAlignment:MainAxisAlignment.center,children:[
-      Btn(t:"Login",i:Icons.login,f:()=>msg(c,"Login")),
-      Btn(t:"Sign Up",i:Icons.person_add,f:()=>msg(c,"Sign Up")),
-      Btn(t:"Settings",i:Icons.settings,f:()=>msg(c,"Settings")),
+      Btn(t:"Login",i:Icons.login,f:()=>msg(c,"Login Clicked")),
+      Btn(t:"Sign Up",i:Icons.person_add,f:()=>msg(c,"Sign Up Clicked")),
+      Btn(t:"Settings",i:Icons.settings,f:()=>msg(c,"Settings Clicked")),
     ])));
 }
